@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_catalog.xml" value="0.19947916666666668" />
+        <entry key="../FitoFarma/app/src/main/res/layout/activity_catalog.xml" value="0.22" />
+        <entry key="../FitoFarma/app/src/main/res/layout/catalog_activity.xml" value="0.17708333333333334" />
+        <entry key="../FitoFarma/app/src/main/res/layout/plant_card.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -13,5 +15,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>
