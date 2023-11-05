@@ -1,5 +1,6 @@
 package br.com.emerson.fitofarma.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.emerson.fitofarma.adapters.PlantAdapter
@@ -31,6 +32,12 @@ class CatalogActivity : AppCompatActivity() {
             Plant("Planta 3", "lorem Ipsum lorem Ipsum"),
             Plant("Planta 4", "lorem Ipsum lorem Ipsum")
         )
+
+        val addPlantButton = binding.addPlantButton
+        addPlantButton.setOnClickListener {
+            val intent = Intent(this, PlantFormActivity::class.java)
+            startActivity(intent)
+        }
 
         val listView = binding.plantsListView
         val adapter = PlantAdapter(this, list)
