@@ -1,3 +1,14 @@
 package br.com.emerson.fitofarma.domain
 
-data class Plant(val name: String, val description: String)
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+@Entity
+class Plant(
+    @PrimaryKey(autoGenerate = true) var id : Long = 0L,
+    var name: String,
+    var description: String,
+) : Parcelable

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.emerson.fitofarma.adapters.PlantAdapter
+import br.com.emerson.fitofarma.database.RoomHelper
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
 import br.com.emerson.fitofarma.domain.Plant
 
@@ -22,16 +23,8 @@ class CatalogActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val list = listOf(
-            Plant("Planta 1", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 2", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 3", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 4", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 1", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 2", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 3", "lorem Ipsum lorem Ipsum"),
-            Plant("Planta 4", "lorem Ipsum lorem Ipsum")
-        )
+        val dao = RoomHelper.getInstance(this).plantDao()
+        val list = dao.findAll()
 
         val addPlantButton = binding.addPlantButton
         addPlantButton.setOnClickListener {
