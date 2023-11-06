@@ -16,8 +16,6 @@ class CatalogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        supportActionBar?.hide()
     }
 
     override fun onResume() {

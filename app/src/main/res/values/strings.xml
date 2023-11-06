@@ -10,4 +10,5 @@
     <string name="descriptionEditText">Descrição</string>
     <string name="nameEditText">Nome</string>
     <string name="registerPlant">Cadastrar planta</string>
+    <string name="backButtonContentDescription">Botão voltar</string>
 </resources>

@@ -7,12 +7,17 @@ import br.com.emerson.fitofarma.databinding.PlantFormActivityBinding
 import br.com.emerson.fitofarma.domain.Plant
 import br.com.emerson.fitofarma.utils.EditTextValidator
 
+
 class PlantFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
 
         val binding = PlantFormActivityBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = ""
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 
         binding.addButton.setOnClickListener {
             if (shouldRegisterPlant(binding)) {
