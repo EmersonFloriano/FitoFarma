@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
-            android:text="Encontre a planta perfeita para você!"
+            android:text="@string/textHeader"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/plantsAvailableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plantas disponíveis"
+            android:text="@string/availablePlants"
             android:textColor="@color/gray"
             android:textSize="18sp"
             app:fontFamily="@font/baloo" />
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Não há plantas disponíveis"
+            android:text="@string/emptyPlantList"
             android:textColor="@color/gray"
             android:textSize="18sp"
             android:visibility="invisible"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:contentDescription="Adicionar nova planta"
+        android:contentDescription="@string/addNewPlantContentDescription"
         app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
