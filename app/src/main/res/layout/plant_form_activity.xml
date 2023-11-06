@@ -19,13 +19,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_back"
+            android:drawablePadding="16dp"
             android:fontFamily="@font/baloo"
             android:text="Cadastrar planta"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:drawableLeft="@drawable/ic_back"
-            android:tint="#FFFFFF"
-            android:drawablePadding="16dp" />
+            android:tint="#FFFFFF" />
 
     </FrameLayout>
 
@@ -63,6 +63,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextPlantName" />
 
+
+        <EditText
+            android:id="@+id/editTextPlantImageUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="URL"
+            android:inputType="textUri"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextPlantDescription" />
+
         <Button
             android:id="@+id/addButton"
             android:layout_width="match_parent"
@@ -75,6 +89,6 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextPlantDescription" />
+            app:layout_constraintTop_toBottomOf="@id/editTextPlantImageUrl" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

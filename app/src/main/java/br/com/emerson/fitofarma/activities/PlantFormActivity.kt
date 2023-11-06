@@ -15,9 +15,10 @@ class PlantFormActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
             val name = binding.editTextPlantName.text.toString()
             val description = binding.editTextPlantDescription.text.toString()
+            val imageUrl = binding.editTextPlantImageUrl.text.toString()
 
             val dao = RoomHelper.getInstance(this).plantDao()
-            dao.insert(Plant(name = name, description = description))
+            dao.insert(Plant(name = name, description = description, imageUrl = imageUrl))
 
             finish()
         }

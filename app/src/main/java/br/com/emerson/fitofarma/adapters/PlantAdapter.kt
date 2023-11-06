@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
+import com.bumptech.glide.Glide
 
 
 class PlantAdapter(private val context: Context, private val plants: List<Plant>) : BaseAdapter() {
@@ -32,6 +33,9 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
 
         binding.title.text = getItem(position).name
         binding.description.text = getItem(position).description
+        Glide.with(context)
+            .load(getItem(position).imageUrl)
+            .into(binding.image)
 
         return binding.root
     }

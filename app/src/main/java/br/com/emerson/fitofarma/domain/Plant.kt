@@ -11,4 +11,5 @@ class Plant(
     @PrimaryKey(autoGenerate = true) var id : Long = 0L,
     var name: String,
     var description: String,
+    var imageUrl: String,
 ) : Parcelable
