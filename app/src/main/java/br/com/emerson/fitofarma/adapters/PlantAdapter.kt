@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
+import br.com.emerson.fitofarma.databinding.PlantCardBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
 import com.bumptech.glide.Glide
@@ -38,5 +40,17 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
             .into(binding.image)
 
         return binding.root
+    }
+
+    fun updateEmptyTextVisibility(binding: CatalogActivityBinding) {
+        if (plants.isEmpty()) {
+            binding.emptyListText.visibility = View.VISIBLE
+            binding.plantsAvailableText.visibility = View.GONE
+            binding.plantsListView.visibility = View.GONE
+        } else {
+            binding.emptyListText.visibility = View.GONE
+            binding.plantsAvailableText.visibility = View.VISIBLE
+            binding.plantsListView.visibility = View.VISIBLE
+        }
     }
 }
