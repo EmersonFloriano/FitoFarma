@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import br.com.emerson.fitofarma.R
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 
 class PlantAdapter(private val context: Context, private val plants: List<Plant>) : BaseAdapter() {
@@ -37,6 +39,8 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
         binding.description.text = getItem(position).description
         Glide.with(context)
             .load(getItem(position).imageUrl)
+            .error(R.drawable.image_not_supported)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(binding.image)
 
         return binding.root
