@@ -42,7 +42,7 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
         return binding.root
     }
 
-    fun updateEmptyTextVisibility(binding: CatalogActivityBinding) {
+    fun updatePlantListVisibility(binding: CatalogActivityBinding) {
         if (plants.isEmpty()) {
             binding.emptyListText.visibility = View.VISIBLE
             binding.plantsAvailableText.visibility = View.GONE

@@ -35,6 +35,6 @@ class CatalogActivity : AppCompatActivity() {
         val listView = binding.plantsListView
         val adapter = PlantAdapter(this, list)
         listView.adapter = adapter
-        adapter.updateEmptyTextVisibility(binding)
+        adapter.updatePlantListVisibility(binding)
     }
 }
