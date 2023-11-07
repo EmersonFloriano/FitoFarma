@@ -20,6 +20,12 @@ class PlantDetailsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = ""
+        binding.backButton.setOnClickListener {
+            finish()
+        }
+
         setContentView(binding.root)
     }
 
