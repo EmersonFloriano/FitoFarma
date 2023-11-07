@@ -6,9 +6,14 @@ import br.com.emerson.fitofarma.database.RoomHelper
 import br.com.emerson.fitofarma.databinding.PlantFormActivityBinding
 import br.com.emerson.fitofarma.domain.Plant
 import br.com.emerson.fitofarma.utils.EditTextValidator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class PlantFormActivity : AppCompatActivity() {
+    private val scope = CoroutineScope(Dispatchers.IO)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,10 +30,14 @@ class PlantFormActivity : AppCompatActivity() {
                 val description = binding.editTextPlantDescription.text.toString()
                 val imageUrl = binding.editTextPlantImageUrl.text.toString()
 
-                val dao = RoomHelper.getInstance(this).plantDao()
-                dao.insert(Plant(name = name, description = description, imageUrl = imageUrl))
+                scope.launch {
+                    val dao = RoomHelper.getInstance(this@PlantFormActivity).plantDao()
+                    dao.insert(Plant(name = name, description = description, imageUrl = imageUrl))
 
-                finish()
+                    runOnUiThread {
+                        finish()
+                    }
+                }
             }
 
         }

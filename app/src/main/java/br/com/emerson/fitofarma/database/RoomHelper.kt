@@ -11,7 +11,8 @@ import br.com.emerson.fitofarma.domain.Plant
     entities = [
         Plant::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class RoomHelper : RoomDatabase() {
 
@@ -20,7 +21,6 @@ abstract class RoomHelper : RoomDatabase() {
     companion object {
         fun getInstance(context: Context): RoomHelper {
             return Room.databaseBuilder(context, RoomHelper::class.java, "fitofarma.db")
-                .allowMainThreadQueries()
                 .build()
         }
     }

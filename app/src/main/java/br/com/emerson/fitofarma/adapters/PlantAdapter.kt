@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.emerson.fitofarma.R
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
-import br.com.emerson.fitofarma.databinding.PlantCardBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
 import com.bumptech.glide.Glide
