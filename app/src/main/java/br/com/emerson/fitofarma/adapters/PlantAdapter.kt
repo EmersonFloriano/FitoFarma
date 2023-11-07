@@ -1,11 +1,14 @@
 package br.com.emerson.fitofarma.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.emerson.fitofarma.R
+import br.com.emerson.fitofarma.activities.PlantDetailsActivity
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
@@ -41,6 +44,15 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
             .error(R.drawable.image_not_supported)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(binding.image)
+
+        binding.cardView.setOnClickListener {
+            val intent = Intent(context, PlantDetailsActivity::class.java)
+            val bundle = Bundle()
+
+            bundle.putLong("id", getItem(position).id)
+            intent.putExtras(bundle)
+            context.startActivity(intent)
+        }
 
         return binding.root
     }

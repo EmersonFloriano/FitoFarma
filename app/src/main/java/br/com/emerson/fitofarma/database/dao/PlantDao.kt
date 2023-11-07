@@ -12,4 +12,7 @@ interface PlantDao {
 
     @Insert
     suspend fun insert(plant: Plant)
+
+    @Query("SELECT * FROM Plant WHERE id = :id")
+    suspend fun getByID(id: Long): Plant
 }

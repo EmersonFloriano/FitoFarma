@@ -11,4 +11,7 @@
     <string name="nameEditText">Nome</string>
     <string name="registerPlant">Cadastrar planta</string>
     <string name="backButtonContentDescription">Botão voltar</string>
+    <string name="title_activity_shopping_cart">ShoppingCart</string>
+    <string name="title_activity_plant_details">Detalhes da Planta</string>
+    <string name="addToCardContentDescription">Adicionar ao Carrinho</string>
 </resources>
