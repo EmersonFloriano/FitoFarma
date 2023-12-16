@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "683911303291",
+    "project_id": "fitofarma-app",
+    "storage_bucket": "fitofarma-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683911303291:android:fc65710bc4f255cf2e12de",
+        "android_client_info": {
+          "package_name": "br.com.emerson.fitofarma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTY2lsr_wAbdRg59Q20UohO5_RoDtqrWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
