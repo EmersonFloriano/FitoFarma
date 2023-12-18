@@ -1,4 +1,4 @@
-package br.com.emerson.fitofarma.adapters
+package br.com.emerson.fitofarma.presentation.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.emerson.fitofarma.R
-import br.com.emerson.fitofarma.activities.PlantDetailsActivity
+import br.com.emerson.fitofarma.presentation.activities.PlantDetailsActivity
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
-import br.com.emerson.fitofarma.domain.Plant
+import br.com.emerson.fitofarma.domain.entities.Plant
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
@@ -49,7 +49,7 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
             val intent = Intent(context, PlantDetailsActivity::class.java)
             val bundle = Bundle()
 
-            bundle.putLong("id", getItem(position).id)
+            bundle.putString("id", getItem(position).id)
             intent.putExtras(bundle)
             context.startActivity(intent)
         }

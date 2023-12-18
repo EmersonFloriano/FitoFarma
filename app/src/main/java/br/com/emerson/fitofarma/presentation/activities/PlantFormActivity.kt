@@ -1,18 +1,21 @@
-package br.com.emerson.fitofarma.activities
+package br.com.emerson.fitofarma.presentation.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.emerson.fitofarma.database.RoomHelper
+import br.com.emerson.fitofarma.data.database.FirestoreHelper
 import br.com.emerson.fitofarma.databinding.PlantFormActivityBinding
-import br.com.emerson.fitofarma.domain.Plant
-import br.com.emerson.fitofarma.utils.EditTextValidator
+import br.com.emerson.fitofarma.domain.use_cases.AddPlantUseCase
+import br.com.emerson.fitofarma.data.PlantRepository
+import br.com.emerson.fitofarma.presentation.dtos.PlantDTO
+import br.com.emerson.fitofarma.presentation.utils.EditTextValidator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class PlantFormActivity : AppCompatActivity() {
-    private val scope = CoroutineScope(Dispatchers.IO)
+    private val scope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +33,22 @@ class PlantFormActivity : AppCompatActivity() {
                 val description = binding.editTextPlantDescription.text.toString()
                 val imageUrl = binding.editTextPlantImageUrl.text.toString()
 
-                scope.launch {
-                    val dao = RoomHelper.getInstance(this@PlantFormActivity).plantDao()
-                    dao.insert(Plant(name = name, description = description, imageUrl = imageUrl))
+                val helper = FirestoreHelper.getInstance()
+                val repository = PlantRepository(helper)
+                val addPlant = AddPlantUseCase(repository)
 
-                    runOnUiThread {
+                scope.launch {
+                    val result = withContext(Dispatchers.IO) {
+                        addPlant.call(
+                            PlantDTO(
+                                name = name,
+                                description = description,
+                                imageUrl = imageUrl
+                            )
+                        )
+                    }
+
+                    if (result) {
                         finish()
                     }
                 }
@@ -44,7 +58,6 @@ class PlantFormActivity : AppCompatActivity() {
 
         setContentView(binding.root)
     }
-
 
     private fun shouldRegisterPlant(binding: PlantFormActivityBinding): Boolean {
         if (!EditTextValidator.isValid(binding.editTextPlantName)) {

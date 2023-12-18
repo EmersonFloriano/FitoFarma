@@ -1,4 +1,4 @@
-package br.com.emerson.fitofarma.utils
+package br.com.emerson.fitofarma.presentation.utils
 
 import android.text.InputType
 import android.util.Patterns
