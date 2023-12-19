@@ -1,10 +1,12 @@
 package br.com.emerson.fitofarma.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.emerson.fitofarma.R
 import br.com.emerson.fitofarma.database.RoomHelper
 import br.com.emerson.fitofarma.databinding.PlantDatailsActivityBinding
+import br.com.emerson.fitofarma.domain.Plant
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.coroutines.CoroutineScope
@@ -45,6 +47,18 @@ class PlantDetailsActivity: AppCompatActivity() {
                 binding.plantName.text = plant.name
                 binding.plantDescription.text = plant.description
             }
+        }
+
+        val addToCartButton = binding.addToCart
+        addToCartButton.setOnClickListener {
+            scope.launch {
+                val dao = RoomHelper.getInstance(this@PlantDetailsActivity).plantDao()
+                val plant = dao.getByID(intent.getLongExtra("id", 0L))
+                dao.addToCart(plant.id)
+            }
+            val intent = Intent(this, ShoppingCartActivity::class.java)
+            startActivity(intent)
+
         }
     }
 }

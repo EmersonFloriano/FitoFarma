@@ -32,7 +32,8 @@ class PlantFormActivity : AppCompatActivity() {
 
                 scope.launch {
                     val dao = RoomHelper.getInstance(this@PlantFormActivity).plantDao()
-                    dao.insert(Plant(name = name, description = description, imageUrl = imageUrl))
+                    dao.insert(Plant(name = name, description = description,
+                        imageUrl = imageUrl, inCart = 0))
 
                     runOnUiThread {
                         finish()

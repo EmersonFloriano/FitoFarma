@@ -15,4 +15,11 @@ interface PlantDao {
 
     @Query("SELECT * FROM Plant WHERE id = :id")
     suspend fun getByID(id: Long): Plant
+
+    @Query("SELECT * FROM Plant WHERE inCart = 1")
+    suspend fun findAllFilteredByInCart(): List<Plant>
+
+    @Query("UPDATE Plant SET inCart = 1 WHERE id = :id")
+    suspend fun addToCart(id: Long)
+
 }

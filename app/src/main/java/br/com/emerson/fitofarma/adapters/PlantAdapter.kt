@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import br.com.emerson.fitofarma.R
 import br.com.emerson.fitofarma.activities.PlantDetailsActivity
+import br.com.emerson.fitofarma.activities.ShoppingCartActivity
+import br.com.emerson.fitofarma.databinding.ActivityShoppingCartBinding
 import br.com.emerson.fitofarma.databinding.CatalogActivityBinding
 import br.com.emerson.fitofarma.databinding.PlantCardBinding.*
 import br.com.emerson.fitofarma.domain.Plant
@@ -58,6 +60,18 @@ class PlantAdapter(private val context: Context, private val plants: List<Plant>
     }
 
     fun updatePlantListVisibility(binding: CatalogActivityBinding) {
+        if (plants.isEmpty()) {
+            binding.emptyListText.visibility = View.VISIBLE
+            binding.plantsAvailableText.visibility = View.GONE
+            binding.plantsListView.visibility = View.GONE
+        } else {
+            binding.emptyListText.visibility = View.GONE
+            binding.plantsAvailableText.visibility = View.VISIBLE
+            binding.plantsListView.visibility = View.VISIBLE
+        }
+    }
+
+    fun updatePlantListVisibility(binding: ActivityShoppingCartBinding) {
         if (plants.isEmpty()) {
             binding.emptyListText.visibility = View.VISIBLE
             binding.plantsAvailableText.visibility = View.GONE

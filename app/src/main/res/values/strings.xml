@@ -1,17 +1,18 @@
 <resources>
-    <string name="app_name">fitofarma</string>
-    <string name="emptyPlantList">Não há plantas disponíveis</string>
-    <string name="availablePlants">Plantas disponíveis</string>
-    <string name="textHeader">Encontre a planta perfeita para você!</string>
-    <string name="addNewPlantContentDescription">Adicionar nova planta</string>
-    <string name="plantImageContentDescription">Imagem da planta</string>
-    <string name="addButton">Adicionar</string>
-    <string name="urlEditText">URL</string>
-    <string name="descriptionEditText">Descrição</string>
-    <string name="nameEditText">Nome</string>
-    <string name="registerPlant">Cadastrar planta</string>
-    <string name="backButtonContentDescription">Botão voltar</string>
-    <string name="title_activity_shopping_cart">ShoppingCart</string>
-    <string name="title_activity_plant_details">Detalhes da Planta</string>
-    <string name="addToCardContentDescription">Adicionar ao Carrinho</string>
+	<string name = "app_name">fitofarma</string>
+	<string name = "emptyPlantList">Não há plantas disponíveis</string>
+	<string name = "availablePlants">Plantas disponíveis</string>
+	<string name = "textHeader">Catálogo</string>
+	<string name = "addNewPlantContentDescription">Adicionar nova planta</string>
+	<string name = "plantImageContentDescription">Imagem da planta</string>
+	<string name = "addButton">Adicionar</string>
+	<string name = "urlEditText">URL</string>
+	<string name = "descriptionEditText">Descrição</string>
+	<string name = "nameEditText">Nome</string>
+	<string name = "registerPlant">Cadastrar planta</string>
+	<string name = "backButtonContentDescription">Botão voltar</string>
+	<string name = "title_activity_shopping_cart">ShoppingCart</string>
+	<string name = "title_activity_plant_details">Detalhes da Planta</string>
+	<string name = "addToCardContentDescription">Adicionar ao Carrinho</string>
+	<string name = "splash_screen_text">FitoFarma</string>
 </resources>
