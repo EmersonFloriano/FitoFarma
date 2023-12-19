@@ -39,4 +39,24 @@ class PlantRepository(private val firestore: FirebaseFirestore) {
             false
         }
     }
+
+    suspend fun getByID(id: String): Plant? {
+        return try {
+            val document = firestore.collection("plants").document(id).get().await()
+            val plantID = document.getString("id") ?: ""
+            val name = document.getString("name") ?: ""
+            val description = document.getString("description") ?: ""
+            val imageUrl = document.getString("imageUrl") ?: ""
+
+            Plant(
+                id = plantID,
+                name,
+                description,
+                imageUrl
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
 }
